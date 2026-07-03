@@ -2,30 +2,250 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Para ti, mi razón de ser 🌹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Para ti, mi amor 🌹</title>
   <style>
-    * {
+    /* RESETEO COMPLETO */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: linear-gradient(135deg, #2d1b2e 0%, #1a0f1f 100%);
+      font-family: 'Georgia', 'Times New Roman', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      background: #1a0a14;
+      background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(180, 60, 80, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(200, 130, 150, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 80%, rgba(160, 50, 70, 0.12) 0%, transparent 60%);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
       position: relative;
       overflow-x: hidden;
       background-attachment: fixed;
     }
 
-    /* Corazones flotantes más suaves */
-    .hearts-container {
+    /* CONTENEDOR PRINCIPAL - DISEÑO LIMPIO PARA MÓVIL */
+    .book {
+      width: 100%;
+      max-width: 440px;
+      background: #fffaf5;
+      border-radius: 24px;
+      box-shadow: 
+        0 4px 6px rgba(0,0,0,0.07),
+        0 10px 30px rgba(0,0,0,0.15),
+        0 20px 50px rgba(140, 40, 60, 0.2);
+      padding: 28px 20px 24px;
+      position: relative;
+      z-index: 2;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(200, 150, 160, 0.2);
+    }
+
+    /* PÁGINAS */
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+      width: 100%;
+      flex: 1;
+      padding-top: 5px;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ICONO DE CORAZÓN */
+    .heart-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      animation: heartbeat 1.8s infinite;
+      display: block;
+      line-height: 1;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+      60% { transform: scale(1); }
+    }
+
+    /* TÍTULOS */
+    h1 {
+      color: #b3405a;
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.3px;
+      line-height: 1.35;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px dashed #d47b8f;
+      display: inline-block;
+      max-width: 90%;
+    }
+
+    /* TEXTO DEL CONTENIDO */
+    .content-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #3d2530;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(255,255,252,0.6);
+      padding: 18px 16px;
+      border-radius: 18px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      border: 1px solid rgba(200, 160, 170, 0.25);
+    }
+
+    .content-text p {
+      margin-bottom: 14px;
+      text-indent: 8px;
+    }
+
+    .content-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FRASES DESTACADAS */
+    .highlight {
+      color: #b3405a;
+      font-weight: bold;
+      background: rgba(255, 210, 220, 0.45);
+      padding: 1px 6px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .italic-quote {
+      font-style: italic;
+      color: #5c3342;
+      border-left: 2.5px solid #d47b8f;
+      padding-left: 14px;
+      margin: 16px 0 8px;
+      text-indent: 0 !important;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* CAJA DE PROPUESTA */
+    .proposal-box {
+      font-size: 1.2rem;
+      color: #b3405a;
+      font-weight: bold;
+      margin: 16px 0;
+      background: rgba(255, 230, 235, 0.55);
+      padding: 18px 14px;
+      border-radius: 22px;
+      border: 1.5px dashed #d47b8f;
+      width: 100%;
+      max-width: 100%;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .sparkle {
+      font-size: 2rem;
+      margin: 8px 0;
+      text-align: center;
+    }
+
+    .signature {
+      font-style: italic;
+      margin-top: 16px;
+      color: #7a4a5a;
+      font-size: 0.95rem;
+      text-align: center;
+      text-indent: 0 !important;
+    }
+
+    /* NAVEGACIÓN - BOTONES GRANDES Y CÓMODOS */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .nav-btn {
+      background: #c96d83;
+      border: none;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 4px 12px rgba(160, 50, 70, 0.3);
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(255,255,255,0.2);
+      min-width: 70px;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.94);
+      background: #a8455a;
+      box-shadow: 0 2px 8px rgba(160, 50, 70, 0.4);
+    }
+
+    .page-indicator {
+      color: #b3405a;
+      font-weight: bold;
+      font-size: 0.85rem;
+      background: rgba(255,245,240,0.9);
+      padding: 7px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(180,100,120,0.3);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* FLECHA VACÍA PARA ALINEAR */
+    .nav-spacer {
+      min-width: 70px;
+    }
+
+    /* CORAZONES FLOTANTES DE FONDO */
+    .hearts-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -36,457 +256,289 @@
       overflow: hidden;
     }
 
-    .heart-particle {
+    .floating-heart {
       position: absolute;
-      bottom: -50px;
-      color: rgba(255, 140, 160, 0.4);
-      font-size: 20px;
-      animation: floatUp 8s linear infinite;
+      bottom: -40px;
       opacity: 0;
-      will-change: transform, opacity;
+      animation: rise linear infinite;
+      pointer-events: none;
     }
 
-    @keyframes floatUp {
+    @keyframes rise {
       0% {
-        transform: translateY(0) rotate(0deg) scale(0.7);
+        transform: translateY(0) rotate(0deg) scale(0.6);
         opacity: 0;
       }
-      15% {
-        opacity: 0.7;
-      }
-      85% {
+      10% {
         opacity: 0.5;
       }
+      80% {
+        opacity: 0.3;
+      }
       100% {
-        transform: translateY(-110vh) rotate(360deg) scale(1.5);
+        transform: translateY(-105vh) rotate(360deg) scale(1.2);
         opacity: 0;
       }
     }
 
-    /* Contenedor libro principal */
-    .book {
-      width: 100%;
-      max-width: 750px;
-      background: rgba(255, 245, 238, 0.92);
-      backdrop-filter: blur(25px);
-      border-radius: 35px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,180,180,0.35), 0 0 50px rgba(255,80,100,0.25);
-      padding: 25px 20px;
-      position: relative;
-      z-index: 2;
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      margin: 10px;
-    }
-
-    .page {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      animation: fadeSlide 0.75s ease;
-      width: 100%;
-      flex: 1;
-    }
-
-    .page.active {
-      display: flex;
-    }
-
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    h1, h2 {
-      color: #b13e5c;
-      margin-bottom: 20px;
-      font-weight: normal;
-      letter-spacing: 0.5px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.08);
-      line-height: 1.3;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      padding: 0 5px;
-    }
-
-    h1 {
-      border-bottom: 2px dashed #d47b8f;
-      display: inline-block;
-      padding-bottom: 12px;
-    }
-
-    .subtitle {
-      color: #9b4d63;
-      font-style: italic;
-      font-size: clamp(1rem, 3vw, 1.2rem);
-      margin-bottom: 15px;
-    }
-
-    .content-text {
-      font-size: clamp(1rem, 3.5vw, 1.25rem);
-      line-height: 1.9;
-      color: #3e2a35;
-      max-width: 600px;
-      width: 100%;
-      margin: 0 auto;
-      background: rgba(255,255,250,0.7);
-      padding: 20px 18px;
-      border-radius: 28px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .content-text p {
-      margin-bottom: 16px;
-    }
-
-    .content-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .highlight {
-      color: #b13e5c;
-      font-weight: bold;
-      background: rgba(255,200,210,0.4);
-      padding: 2px 8px;
-      border-radius: 12px;
-    }
-
-    .heart-icon {
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      margin: 15px 0;
-      animation: heartbeat 1.5s infinite;
-    }
-
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      20% { transform: scale(1.12); }
-      40% { transform: scale(1); }
-      60% { transform: scale(1.08); }
-      80% { transform: scale(1); }
-      100% { transform: scale(1); }
-    }
-
-    /* Navegación mejorada para móvil */
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 25px;
-      gap: 10px;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-
-    .nav-btn {
-      background: #c96d83;
-      border: none;
-      color: white;
-      padding: 12px 22px;
-      border-radius: 35px;
-      font-size: clamp(0.9rem, 3vw, 1.05rem);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Georgia', serif;
-      box-shadow: 0 6px 18px rgba(170, 60, 80, 0.35);
-      white-space: nowrap;
-      letter-spacing: 0.3px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .nav-btn:active {
-      transform: scale(0.96);
-      background: #a8455a;
-    }
-
-    .nav-btn:hover {
-      background: #b14f65;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(170, 60, 80, 0.5);
-    }
-
-    .nav-btn:disabled {
-      background: #c9a3ae;
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
-      opacity: 0.7;
-    }
-
-    .page-indicator {
-      color: #b13e5c;
-      font-weight: bold;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
-      background: rgba(255,245,240,0.8);
-      padding: 6px 16px;
-      border-radius: 25px;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(180,100,120,0.3);
-    }
-
-    /* Página propuesta destacada */
-    .proposal-box {
-      font-size: clamp(1.3rem, 4vw, 1.9rem);
-      color: #b13e5c;
-      font-weight: bold;
-      margin: 20px 0;
-      background: rgba(255, 225, 230, 0.7);
-      padding: 20px 15px;
-      border-radius: 40px;
-      border: 2px dashed #d47b8f;
-      width: 100%;
-      max-width: 550px;
-      line-height: 1.5;
-    }
-
-    .sparkle {
-      font-size: clamp(2rem, 6vw, 2.8rem);
-      margin: 10px 0;
-    }
-
-    .signature {
-      font-style: italic;
-      margin-top: 20px;
-      color: #7a4a5a;
-      font-size: 1.1rem;
-    }
-
-    .italic-quote {
-      font-style: italic;
-      color: #5d3644;
-      border-left: 3px solid #d47b8f;
-      padding-left: 15px;
-      margin: 18px 0;
-      text-align: left;
-    }
-
-    /* Ajustes finos para pantallas muy pequeñas */
-    @media (max-width: 400px) {
-      .book {
-        padding: 20px 12px;
-        border-radius: 28px;
-      }
-      .content-text {
-        padding: 18px 14px;
-        border-radius: 22px;
-      }
-      .nav-btn {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-      }
-      .nav-buttons {
-        gap: 6px;
-      }
-    }
-
-    @media (min-width: 401px) and (max-width: 600px) {
-      .book {
-        padding: 22px 16px;
-      }
-      .content-text {
-        padding: 20px 16px;
-      }
-      .nav-btn {
-        padding: 11px 20px;
-      }
-    }
-
-    /* Scroll suave si el contenido es muy largo */
-    .page {
+    /* SCROLL DENTRO DE PÁGINAS LARGAS */
+    .page-scroll {
       overflow-y: auto;
-      max-height: 70vh;
-      padding-right: 5px;
+      max-height: 55vh;
+      max-height: 55dvh;
+      width: 100%;
+      padding-right: 3px;
+      margin-bottom: 5px;
     }
     
-    .page::-webkit-scrollbar {
-      width: 4px;
+    .page-scroll::-webkit-scrollbar {
+      width: 3px;
     }
-    .page::-webkit-scrollbar-thumb {
+    .page-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .page-scroll::-webkit-scrollbar-thumb {
       background: #d47b8f;
       border-radius: 10px;
+    }
+
+    /* Para páginas sin scroll, centramos mejor */
+    .page-center {
+      justify-content: center;
+    }
+
+    /* Ajustes específicos para pantallas MUY pequeñas */
+    @media (max-width: 360px) {
+      .book {
+        padding: 22px 14px 20px;
+        border-radius: 20px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      .content-text {
+        font-size: 0.92rem;
+        padding: 14px 12px;
+        line-height: 1.65;
+      }
+      .nav-btn {
+        padding: 11px 14px;
+        font-size: 0.85rem;
+      }
+      .page-indicator {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+    }
+
+    @media (min-width: 361px) and (max-width: 420px) {
+      .book {
+        padding: 26px 16px 22px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      .content-text {
+        font-size: 0.95rem;
+        padding: 16px 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Corazones flotantes -->
-  <div class="hearts-container" id="heartsContainer"></div>
+  <!-- Corazones de fondo -->
+  <div class="hearts-bg" id="heartsBg"></div>
 
+  <!-- LIBRO PRINCIPAL -->
   <div class="book" id="bookContainer">
-    
-    <!-- Página 1: Inicio / Presentación -->
-    <div class="page active" id="page1">
-      <div class="heart-icon">💖</div>
+
+    <!-- PÁGINA 1: INICIO -->
+    <div class="page active page-center" id="page1">
+      <span class="heart-icon">💖</span>
       <h1>Para ti, que llegaste sin avisar</h1>
-      <div class="content-text">
-        <p>✨ Bienvenida a este pequeño universo de palabras que nacen desde lo más profundo de mi ser.</p>
-        <p>Hoy quiero abrirte mi corazón de una forma distinta. Esto no es solo un detalle bonito, es un viaje por cada rincón de mis sentimientos, esos que despertaste sin pedir permiso y que ahora no puedo callar.</p>
-        <p>Prepárate, porque lo que estás a punto de leer no son simples letras... son pedacitos de mi alma que quieren encontrarse con la tuya. 🌙</p>
-        <p class="italic-quote"><em>"A veces el destino nos pone frente a alguien que nos hace replantearlo todo. Tú eres esa persona para mí."</em></p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>✨ Bienvenida a este pequeño universo de palabras que nacen desde lo más profundo de mi ser.</p>
+          <p>Hoy quiero abrirte mi corazón de una forma distinta. Esto no es solo un detalle bonito, es un viaje por cada rincón de mis sentimientos, esos que despertaste sin pedir permiso y que ahora no puedo callar.</p>
+          <p>Prepárate, porque lo que estás a punto de leer no son simples letras... son pedacitos de mi alma que quieren encontrarse con la tuya. 🌙</p>
+          <p class="italic-quote">"A veces el destino nos pone frente a alguien que nos hace replantearlo todo. Tú eres esa persona para mí."</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <span></span>
-        <button class="nav-btn" onclick="goToPage(2)">Comenzar viaje ➡️</button>
+        <span class="nav-spacer"></span>
+        <button class="nav-btn" onclick="goToPage(2)">Comenzar ➡️</button>
       </div>
     </div>
 
-    <!-- Página 2: Sobre mí -->
+    <!-- PÁGINA 2: SOBRE MÍ -->
     <div class="page" id="page2">
       <h1>Así soy yo, sin filtros</h1>
-      <div class="content-text">
-        <p>Desde pequeño aprendí lo que significa la responsabilidad. No porque me lo impusieran, sino porque entendí que la vida se construye con actos, no solo con palabras bonitas.</p>
-        <p>Soy de esas personas que no saben fingir. Si algo me duele, lo siento hasta los huesos. Si algo me alegra, mi sonrisa lo grita antes que mi boca. Vivo cada emoción al límite, porque para mí sentir es la única forma real de estar vivo.</p>
-        <p>Soy sincero, a veces demasiado. Prefiero una verdad incómoda antes que una mentira disfrazada de ternura. Y si entrego mi corazón, lo entrego completo, sin reservas, sin planes de escape.</p>
-        <p>Con virtudes y defectos, con historias que me marcaron y sueños que aún me mantienen en pie. <span class="highlight">Este soy yo.</span> 🌿</p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Desde pequeño aprendí lo que significa la responsabilidad. No porque me lo impusieran, sino porque entendí que la vida se construye con actos, no solo con palabras bonitas.</p>
+          <p>Soy de esas personas que no saben fingir. Si algo me duele, lo siento hasta los huesos. Si algo me alegra, mi sonrisa lo grita antes que mi boca. Vivo cada emoción al límite, porque para mí sentir es la única forma real de estar vivo.</p>
+          <p>Soy sincero, a veces demasiado. Prefiero una verdad incómoda antes que una mentira disfrazada de ternura. Y si entrego mi corazón, lo entrego completo, sin reservas, sin planes de escape.</p>
+          <p>Con virtudes y defectos, con historias que me marcaron y sueños que aún me mantienen en pie. <span class="highlight">Este soy yo.</span> 🌿</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(1)">⬅️ Inicio</button>
+        <button class="nav-btn" onclick="goToPage(1)">⬅️</button>
         <span class="page-indicator">2/10</span>
-        <button class="nav-btn" onclick="goToPage(3)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(3)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 3: Heridas del pasado -->
+    <!-- PÁGINA 3: HERIDAS -->
     <div class="page" id="page3">
       <h1>Donde alguna vez dolió</h1>
-      <div class="content-text">
-        <p>No todo ha sido color de rosa en mi camino. Hubo tiempos oscuros donde me hicieron sentir que no valía nada, que era la peor basura del mundo. Y lo peor es que por momentos llegué a creérmelo.</p>
-        <p>He probado el veneno de los engaños más crueles, esos que te destrozan la confianza en pedazos tan pequeños que parece imposible volver a armarla.</p>
-        <p>He escuchado mentiras que sonaban tan dulces que dolían el doble cuando descubrías la verdad. Sentimientos falsos envueltos en papel de regalo, pérdidas de tiempo que me dejaron más vacío que acompañado.</p>
-        <p>Malas experiencias que me enseñaron a levantar muros... pero también me enseñaron lo que <span class="highlight">NO</span> quiero volver a vivir jamás. 💔</p>
-        <p class="italic-quote"><em>"Las cicatrices no desaparecen, pero dejan de doler cuando alguien las mira con amor."</em></p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>No todo ha sido color de rosa en mi camino. Hubo tiempos oscuros donde me hicieron sentir que no valía nada, que era la peor basura del mundo. Y lo peor es que por momentos llegué a creérmelo.</p>
+          <p>He probado el veneno de los engaños más crueles, esos que te destrozan la confianza en pedazos tan pequeños que parece imposible volver a armarla.</p>
+          <p>He escuchado mentiras que sonaban tan dulces que dolían el doble cuando descubrías la verdad. Sentimientos falsos envueltos en papel de regalo, pérdidas de tiempo que me dejaron más vacío que acompañado.</p>
+          <p>Malas experiencias que me enseñaron a levantar muros... pero también me enseñaron lo que <span class="highlight">NO</span> quiero volver a vivir jamás. 💔</p>
+          <p class="italic-quote">"Las cicatrices no desaparecen, pero dejan de doler cuando alguien las mira con amor."</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(2)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(2)">⬅️</button>
         <span class="page-indicator">3/10</span>
-        <button class="nav-btn" onclick="goToPage(4)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(4)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 4: Dándome la oportunidad contigo -->
+    <!-- PÁGINA 4: A PESAR DE TODO -->
     <div class="page" id="page4">
       <h1>A pesar de todo... aquí estoy</h1>
-      <div class="content-text">
-        <p>Después de tantas tormentas, cualquiera se hubiera rendido. Pero mírame... aquí estoy, de pie, con el corazón latiendo fuerte otra vez, dándome la oportunidad de sentir algo lindo, bonito y verdadero. Y todo gracias a ti.</p>
-        <p>Quiero que sepas algo muy importante: yo no miro hacia atrás para juzgarte. Tu pasado es tuyo, y el mío también. Lo que importa es lo que podemos construir desde hoy, sin anclas, sin fantasmas, sin reproches.</p>
-        <p>Y sobre tu hija... quiero ser claro como el agua: <span class="highlight">su existencia no cambia en absoluto lo que siento por ti.</span> Al contrario, habla de la mujer tan increíble y fuerte que eres. Nada ni nadie va a cambiar la perspectiva tan hermosa que tengo de ti.</p>
-        <p>El sentimiento que llevo dentro no va a disminuir jamás. Solo va a crecer, como crece un árbol bien cuidado, día tras día, con la certeza de que sus raíces son firmes. 🌱❤️</p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Después de tantas tormentas, cualquiera se hubiera rendido. Pero mírame... aquí estoy, de pie, con el corazón latiendo fuerte otra vez, dándome la oportunidad de sentir algo lindo, bonito y verdadero. Y todo gracias a ti.</p>
+          <p>Quiero que sepas algo muy importante: yo no miro hacia atrás para juzgarte. Tu pasado es tuyo, y el mío también. Lo que importa es lo que podemos construir desde hoy, sin anclas, sin fantasmas, sin reproches.</p>
+          <p>Y sobre tu hija... quiero ser claro como el agua: <span class="highlight">su existencia no cambia en absoluto lo que siento por ti.</span> Al contrario, habla de la mujer tan increíble y fuerte que eres. Nada ni nadie va a cambiar la perspectiva tan hermosa que tengo de ti.</p>
+          <p>El sentimiento que llevo dentro no va a disminuir jamás. Solo va a crecer, como crece un árbol bien cuidado, día tras día. 🌱❤️</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(3)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(3)">⬅️</button>
         <span class="page-indicator">4/10</span>
-        <button class="nav-btn" onclick="goToPage(5)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(5)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 5: Lo que realmente valoro -->
+    <!-- PÁGINA 5: LO QUE REALMENTE VALORO -->
     <div class="page" id="page5">
-      <h1>No necesito lujos, te necesito a ti</h1>
-      <div class="content-text">
-        <p>Escúchame bien, porque esto viene del alma: yo no te voy a pedir cosas materiales, ni lujos innecesarios, ni nada que se pueda comprar con dinero.</p>
-        <p>Lo único que anhelo, lo único que le pido a la vida y a ti, es que lo nuestro sea <span class="highlight">sincero</span>. Que no haya máscaras, que cada palabra tenga el peso de la verdad y cada gesto nazca del corazón.</p>
-        <p>Quiero que sea <span class="highlight">mutuo</span>, un camino donde los dos caminemos juntos, sin que uno cargue con todo mientras el otro solo observa. Quiero que sea <span class="highlight">leal</span>, de esa lealtad que no necesita vigilancia porque se cultiva con respeto.</p>
-        <p>Y sobre todo, quiero que seas <span class="highlight">bonita de sentimiento conmigo</span>. Con eso me basta, con eso soy feliz. Del resto me encargo yo, tranquila.</p>
-        <p>Y todos los días le agradezco a Dios por haberme permitido fijarme en una mujer tan increíble como tú. De verdad, no exagero. 🙏✨</p>
+      <h1>No necesito lujos</h1>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Escúchame bien, porque esto viene del alma: yo no te voy a pedir cosas materiales, ni lujos innecesarios, ni nada que se pueda comprar con dinero.</p>
+          <p>Lo único que anhelo es que lo nuestro sea <span class="highlight">sincero</span>. Que no haya máscaras, que cada palabra tenga el peso de la verdad y cada gesto nazca del corazón.</p>
+          <p>Quiero que sea <span class="highlight">mutuo</span>, un camino donde los dos caminemos juntos, sin que uno cargue con todo mientras el otro solo observa.</p>
+          <p>Quiero que sea <span class="highlight">leal</span>, de esa lealtad que no necesita vigilancia porque se cultiva con respeto. Y sobre todo, quiero que seas <span class="highlight">bonita de sentimiento conmigo</span>.</p>
+          <p>Con eso me basta. Del resto me encargo yo, tranquila. Y todos los días le agradezco a Dios por haberme permitido fijarme en una mujer tan increíble como tú. 🙏✨</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(4)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(4)">⬅️</button>
         <span class="page-indicator">5/10</span>
-        <button class="nav-btn" onclick="goToPage(6)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(6)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 6: Más allá de las palabras bonitas -->
+    <!-- PÁGINA 6: MÁS ALLÁ DE LAS PALABRAS -->
     <div class="page" id="page6">
-      <h1>No prometo perfección, prometo intención</h1>
-      <div class="content-text">
-        <p>Mira, yo podría llenarte de promesas vacías ahora mismo, decirte que todo será perfecto, que jamás tendremos un problema, que seremos la excepción a todas las reglas del mundo.</p>
-        <p>Pero no voy a hacerlo, porque sería mentirte. <span class="highlight">La perfección no existe</span>, y quien te la prometa solo te está preparando para una desilusión.</p>
-        <p>Lo que sí te prometo es intención. Te prometo que voy a intentarlo todos los días, que pondré mi mejor versión sobre la mesa aunque a veces me equivoque.</p>
-        <p>Quiero que lo nuestro sea sumamente bonito, de esos amores que no necesitan ser perfectos porque son reales. Quiero que estemos juntos, los dos, hombro con hombro, hasta que nos falte el aliento. Hasta el resto de la vida. 🌟</p>
-        <p class="italic-quote"><em>"No sueño con un amor de cuento de hadas. Sueño con un amor de verdad, con tropiezos, risas, abrazos a las 3 AM y la certeza de que al final del día, ahí estás tú."</em></p>
+      <h1>No prometo perfección</h1>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Mira, yo podría llenarte de promesas vacías ahora mismo, decirte que todo será perfecto, que jamás tendremos un problema, que seremos la excepción a todas las reglas del mundo.</p>
+          <p>Pero no voy a hacerlo, porque sería mentirte. <span class="highlight">La perfección no existe</span>, y quien te la prometa solo te está preparando para una desilusión.</p>
+          <p>Lo que sí te prometo es intención. Te prometo que voy a intentarlo todos los días, que pondré mi mejor versión sobre la mesa aunque a veces me equivoque.</p>
+          <p>Quiero que lo nuestro sea sumamente bonito, de esos amores que no necesitan ser perfectos porque son reales. Quiero que estemos juntos, los dos, hombro con hombro, hasta que nos falte el aliento. Hasta el resto de la vida. 🌟</p>
+          <p class="italic-quote">"No sueño con un amor de cuento de hadas. Sueño con un amor de verdad, con tropiezos, risas, abrazos a las 3 AM y la certeza de que al final del día, ahí estás tú."</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(5)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(5)">⬅️</button>
         <span class="page-indicator">6/10</span>
-        <button class="nav-btn" onclick="goToPage(7)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(7)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 7: La promesa de verdad -->
+    <!-- PÁGINA 7: LA PROMESA -->
     <div class="page" id="page7">
       <h1>Nuestra promesa sagrada</h1>
-      <div class="content-text">
-        <p>Esta sí es una promesa, de las que se hacen con el alma y se sellan con la vida misma.</p>
-        <p>Te prometo que vamos a salir adelante. <span class="highlight">Los dos.</span> Contra viento y marea, cuando todo sea fácil y cuando parezca imposible. Vamos a empujar juntos hacia el mismo lado.</p>
-        <p>Te prometo que cumpliremos nuestros sueños y nuestras metas. No importa cuánto tiempo tome, no importa cuántas veces tengamos que reinventarnos. Ahí estaremos.</p>
-        <p>Y quiero que esta promesa nos acompañe en cada faceta de nuestras vidas: <span class="highlight">como personas</span> que se respetan, <span class="highlight">como amigos</span> que se ríen hasta el cansancio, <span class="highlight">como amantes</span> que se buscan en la oscuridad, <span class="highlight">como pareja</span> que construye un hogar, <span class="highlight">como esposos</span> que se eligen cada mañana... e incluso <span class="highlight">como enemigos</span> si la vida nos pone a prueba, porque hasta en la tormenta sabremos encontrarnos. 🤞💫</p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Esta sí es una promesa, de las que se hacen con el alma y se sellan con la vida misma.</p>
+          <p>Te prometo que vamos a salir adelante. <span class="highlight">Los dos.</span> Contra viento y marea, cuando todo sea fácil y cuando parezca imposible. Vamos a empujar juntos hacia el mismo lado.</p>
+          <p>Te prometo que cumpliremos nuestros sueños y nuestras metas. No importa cuánto tiempo tome, no importa cuántas veces tengamos que reinventarnos. Ahí estaremos.</p>
+          <p>Y quiero que esta promesa nos acompañe en cada faceta: <span class="highlight">como personas</span> que se respetan, <span class="highlight">como amigos</span> que se ríen hasta el cansancio, <span class="highlight">como amantes</span> que se buscan en la oscuridad, <span class="highlight">como pareja</span> que construye un hogar, <span class="highlight">como esposos</span> que se eligen cada mañana... e incluso <span class="highlight">como enemigos</span> si la vida nos pone a prueba, porque hasta en la tormenta sabremos encontrarnos. 🤞💫</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(6)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(6)">⬅️</button>
         <span class="page-indicator">7/10</span>
-        <button class="nav-btn" onclick="goToPage(8)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(8)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 8: Matrimonio y certeza -->
+    <!-- PÁGINA 8: MATRIMONIO -->
     <div class="page" id="page8">
       <h1>Contigo hasta el altar</h1>
-      <div class="content-text">
-        <p>Y ahora voy a ser todavía más claro, porque lo que siento no se puede esconder detrás de medias tintas.</p>
-        <p>Si hoy me das el sí, quiero que sepas que no será un sí cualquiera. Porque ese sí me lo tendrás que volver a decir <span class="highlight">frente al altar</span>, delante de Dios y de todas las personas que amamos. Delante del cielo y de la tierra.</p>
-        <p><span class="highlight">Me quiero casar contigo.</span> No es una idea loca de un momento, es la certeza más hermosa que ha nacido en mi pecho desde hace mucho tiempo.</p>
-        <p>Me gustas de una forma que no puedo explicar. Me vuelves loco, me mueves el piso, me haces temblar las ideas y me llenas de una calma que no conocía.</p>
-        <p>¿Y cómo vas a saber que todo esto es verdadero, que no es un engaño bonito ni palabras vacías? Porque yo había hecho una promesa conmigo mismo: <span class="highlight">no volver a sentirme así durante mucho tiempo.</span> Había cerrado esa puerta con candado. Pero apareciste tú, con tu luz, con tu esencia, y lo cambiaste absolutamente todo. 💍💖</p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Y ahora voy a ser todavía más claro, porque lo que siento no se puede esconder detrás de medias tintas.</p>
+          <p>Si hoy me das el sí, quiero que sepas que no será un sí cualquiera. Porque ese sí me lo tendrás que volver a decir <span class="highlight">frente al altar</span>, delante de Dios y de todas las personas que amamos.</p>
+          <p><span class="highlight">Me quiero casar contigo.</span> No es una idea loca de un momento, es la certeza más hermosa que ha nacido en mi pecho.</p>
+          <p>Me gustas de una forma que no puedo explicar. Me vuelves loco, me mueves el piso, me haces temblar las ideas y me llenas de una calma que no conocía.</p>
+          <p>¿Y cómo vas a saber que todo esto es verdadero? Porque yo había hecho una promesa conmigo mismo: <span class="highlight">no volver a sentirme así durante mucho tiempo.</span> Había cerrado esa puerta con candado. Pero apareciste tú, con tu luz, con tu esencia, y lo cambiaste absolutamente todo. 💍💖</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(7)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(7)">⬅️</button>
         <span class="page-indicator">8/10</span>
-        <button class="nav-btn" onclick="goToPage(9)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(9)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 9: Ansiando momentos -->
+    <!-- PÁGINA 9: ANSIANDO MOMENTOS -->
     <div class="page" id="page9">
       <h1>Ansió tanto vivir contigo...</h1>
-      <div class="content-text">
-        <p>Ansió muchísimos momentos a tu lado, de esos que llenan el alma y se quedan grabados para siempre en la memoria del corazón.</p>
-        <p>Ansió las mañanas de domingo sin prisa, las risas tontas por cualquier cosa, los silencios cómodos que no necesitan palabras. Ansió viajar contigo, aunque sea a la esquina, pero de tu mano.</p>
-        <p>Ansió verte sonreír por algo que hice, secar tus lágrimas si algún día llegan, celebrar tus triunfos como si fueran míos. Ansió construir una historia que valga la pena contar.</p>
-        <p>Y bueno... dicho todo esto, solo me queda decir: <span class="highlight">vamos para adelante.</span> Sin miedo, sin dudas, con la certeza de que juntos podemos con todo. 🌅💕</p>
-        <p class="italic-quote"><em>"No quiero un amor de un día. Quiero un amor de todos los días. De los que suman, de los que construyen, de los que se eligen una y otra vez."</em></p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Ansió muchísimos momentos a tu lado, de esos que llenan el alma y se quedan grabados para siempre en la memoria del corazón.</p>
+          <p>Ansió las mañanas de domingo sin prisa, las risas tontas por cualquier cosa, los silencios cómodos que no necesitan palabras. Ansió viajar contigo, aunque sea a la esquina, pero de tu mano.</p>
+          <p>Ansió verte sonreír por algo que hice, secar tus lágrimas si algún día llegan, celebrar tus triunfos como si fueran míos. Ansió construir una historia que valga la pena contar.</p>
+          <p>Y bueno... dicho todo esto, solo me queda decir: <span class="highlight">vamos para adelante.</span> Sin miedo, sin dudas, con la certeza de que juntos podemos con todo. 🌅💕</p>
+          <p class="italic-quote">"No quiero un amor de un día. Quiero un amor de todos los días. De los que suman, de los que construyen, de los que se eligen una y otra vez."</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(8)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(8)">⬅️</button>
         <span class="page-indicator">9/10</span>
-        <button class="nav-btn" onclick="goToPage(10)">Siguiente ➡️</button>
+        <button class="nav-btn" onclick="goToPage(10)">➡️</button>
       </div>
     </div>
 
-    <!-- Página 10: La propuesta final -->
-    <div class="page" id="page10">
-      <div class="heart-icon">💘</div>
-      <h1>La pregunta que me quema los labios</h1>
+    <!-- PÁGINA 10: PROPUESTA FINAL -->
+    <div class="page page-center" id="page10">
+      <span class="heart-icon">💘</span>
+      <h1>La pregunta más importante</h1>
       <div class="proposal-box">
         <p>¿Quieres ser mi compañera y vivir nuestras vidas a todo dar?</p>
       </div>
-      <div class="content-text">
-        <p>Esto no es solo una propuesta de noviazgo. Esto va mucho, muchísimo más allá.</p>
-        <p>Es una invitación a caminar juntos hasta que el pelo se nos ponga blanco y las arrugas nos cuenten historias. Es la propuesta de <span class="highlight">llegar a viejitos contigo, mi amor.</span></p>
-        <p>Es despertar cada día sabiendo que te elegí y me elegiste. Es construir un equipo donde nadie se rinde, donde nadie se va, donde el amor es la respuesta a todo.</p>
-        <p class="sparkle">👵🏻👴🏻💖</p>
-        <p class="signature">— Porque si es contigo, quiero que sea para siempre. —</p>
+      <div class="page-scroll">
+        <div class="content-text">
+          <p>Esto no es solo una propuesta de noviazgo. Esto va mucho, muchísimo más allá.</p>
+          <p>Es una invitación a caminar juntos hasta que el pelo se nos ponga blanco y las arrugas nos cuenten historias.</p>
+          <p>Es la propuesta de <span class="highlight">llegar a viejitos contigo, mi amor.</span> Es despertar cada día sabiendo que te elegí y me elegiste.</p>
+          <p class="sparkle">👵🏻👴🏻💖</p>
+          <p class="signature">— Porque si es contigo, quiero que sea para siempre. —</p>
+        </div>
       </div>
       <div class="nav-buttons">
-        <button class="nav-btn" onclick="goToPage(9)">⬅️ Anterior</button>
+        <button class="nav-btn" onclick="goToPage(9)">⬅️</button>
         <span class="page-indicator">10/10</span>
-        <span></span>
+        <span class="nav-spacer"></span>
       </div>
     </div>
 
@@ -500,112 +552,95 @@
       if (pageNumber < 1 || pageNumber > totalPages) return;
       
       // Ocultar todas las páginas
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const allPages = document.querySelectorAll('.page');
+      allPages.forEach(p => p.classList.remove('active'));
       
       // Mostrar la página seleccionada
-      const targetPage = document.getElementById(`page${pageNumber}`);
+      const targetPage = document.getElementById('page' + pageNumber);
       if (targetPage) {
         targetPage.classList.add('active');
-        // Scroll al inicio de la página si tiene overflow
-        targetPage.scrollTop = 0;
+        // Resetear scroll al inicio
+        const scrollContainer = targetPage.querySelector('.page-scroll');
+        if (scrollContainer) {
+          scrollContainer.scrollTop = 0;
+        }
       }
       
       currentPage = pageNumber;
       
-      // Efecto táctil visual en el libro
+      // Pequeño feedback visual
       const book = document.getElementById('bookContainer');
       if (book) {
-        book.style.transform = 'scale(1.02)';
-        setTimeout(() => { book.style.transform = 'scale(1)'; }, 200);
+        book.style.transform = 'scale(0.98)';
+        setTimeout(() => { book.style.transform = 'scale(1)'; }, 150);
       }
     }
 
-    // Crear corazones flotantes (optimizado para rendimiento)
+    // Crear corazones flotantes (ligeros)
     function createHearts() {
-      const container = document.getElementById('heartsContainer');
-      if (!container) return;
+      const bg = document.getElementById('heartsBg');
+      if (!bg) return;
       
-      const heartSymbols = ['❤️', '🌸', '✨', '💗', '🕊️', '💖', '🌷', '🫧', '💕'];
+      const symbols = ['🩷', '🌸', '✨', '🫧', '💗', '🕊️', '💖', '🌷', '💕', '🩵'];
       
       const addHeart = () => {
-        if (document.hidden) return; // No crear si la pestaña no está visible
+        if (document.hidden) return;
         
         const heart = document.createElement('span');
-        heart.className = 'heart-particle';
-        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 95 + '%';
-        heart.style.animationDuration = (Math.random() * 8 + 7) + 's';
-        heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
-        container.appendChild(heart);
+        heart.className = 'floating-heart';
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = Math.random() * 90 + '%';
+        heart.style.fontSize = (Math.random() * 16 + 13) + 'px';
+        heart.style.animationDuration = (Math.random() * 9 + 8) + 's';
+        heart.style.animationDelay = '0s';
+        bg.appendChild(heart);
         
-        // Limpiar después de la animación
+        // Auto-eliminar
         setTimeout(() => {
-          if (heart.parentNode) {
-            heart.remove();
-          }
-        }, 12000);
+          if (heart.parentNode) heart.remove();
+        }, 18000);
       };
       
-      // Crear corazones periódicamente
-      setInterval(addHeart, 450);
+      // Crear periódicamente
+      setInterval(addHeart, 600);
       
-      // Crear algunos corazones iniciales
-      for (let i = 0; i < 5; i++) {
-        setTimeout(addHeart, i * 200);
+      // Iniciales
+      for (let i = 0; i < 6; i++) {
+        setTimeout(addHeart, i * 300);
       }
     }
 
-    // Soporte para gestos táctiles (swipe) en móviles
+    // Soporte para deslizar (swipe)
     let touchStartX = 0;
-    let touchEndX = 0;
+    const bookEl = document.getElementById('bookContainer');
     
-    const bookElement = document.getElementById('bookContainer');
-    if (bookElement) {
-      bookElement.addEventListener('touchstart', (e) => {
+    if (bookEl) {
+      bookEl.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, {passive: true});
       
-      bookElement.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+      bookEl.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            goToPage(currentPage + 1);
+          } else {
+            goToPage(currentPage - 1);
+          }
+        }
       }, {passive: true});
     }
-    
-    function handleSwipe() {
-      const swipeThreshold = 60;
-      if (touchEndX < touchStartX - swipeThreshold) {
-        // Swipe izquierda -> siguiente página
-        goToPage(currentPage + 1);
-      }
-      if (touchEndX > touchStartX + swipeThreshold) {
-        // Swipe derecha -> página anterior
-        goToPage(currentPage - 1);
-      }
-    }
 
-    // Navegación con teclado (útil en desktop)
+    // Teclado
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        goToPage(currentPage + 1);
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        goToPage(currentPage - 1);
-      }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goToPage(currentPage + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goToPage(currentPage - 1); }
     });
 
-    // Iniciar animaciones cuando cargue la página
-    window.addEventListener('DOMContentLoaded', () => {
-      createHearts();
-    });
-    
-    // Pausar animaciones cuando la página no esté visible (ahorro de recursos)
-    document.addEventListener('visibilitychange', () => {
-      const hearts = document.querySelectorAll('.heart-particle');
-      hearts.forEach(heart => {
-        heart.style.animationPlayState = document.hidden ? 'paused' : 'running';
-      });
-    });
+    // Iniciar
+    window.addEventListener('DOMContentLoaded', createHearts);
   </script>
 </body>
 </html>
